@@ -45,6 +45,7 @@ module Arkenstone
         uri = URI(url)
         http = Net::HTTP.new(uri.hostname, uri.port)
         http.use_ssl = true if uri.scheme == 'https'
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         http
       end
 
